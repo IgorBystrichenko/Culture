@@ -1,0 +1,508 @@
+.body {
+  font-family: 'Ubuntu', serif;
+}
+
+a, p {
+  font-family: 'Ubuntu', serif;
+  text-decoration: none;
+  color: #000;
+}
+
+.headerContainer {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  font-size: 24px;
+  background: linear-gradient(#000f, #0000);
+  position: fixed;
+  z-index: 1;
+}
+
+.headerContainer a {
+  color: white;
+}
+
+.leftHeader {
+  width: 50%;
+  margin: 20px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  color: white;
+}
+
+.rightHeader {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  margin: auto;
+  margin-right: 60px;
+}
+
+.rightHeader > li {
+  margin: auto;
+  margin-left: 40px;
+  font-family: Ubuntu, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.headerButton {
+  border-width: 0px;
+  background-color: #0000;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.login {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.loginInput {
+  width: -webkit-fill-available;
+  font-size: 16px;
+  height: 36px;
+  padding: 6px 12px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.authButton {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  border-width: 1px;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Ubuntu', serif;
+  font-size: 1.5rem;
+  font-weight: inherit;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+h2 > a {
+  font-size: 1.25rem;
+  font-weight: inherit;
+  line-height: 1.5;
+}
+
+a > img {
+  width:100%;
+  height: 600px;;
+  object-fit:cover;
+  margin-bottom: 20px;
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  margin: auto;
+}
+
+.slides {
+  height: 100%;
+  background-color: currentColor;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.main-panel {
+  width:100%;
+  height:650px;
+  position: relative;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+.main-content {
+  padding: 0 10%;
+  height: min-content;
+  width: 100%;
+  background: linear-gradient(transparent, black);
+}
+
+.main-content > h1 {
+  font-family: 'Ubuntu';
+  font-size: 500%;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters form {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.filters input {
+  background-color: transparent;
+  color: white;
+  border-style: solid;
+  border-color: #dddddd;
+  padding: 6px 9px;
+}
+
+.filter {
+  height: fit-content;
+  width: fit-content;
+  margin-right: 30px;
+}
+
+.paramsFilter {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.buttonsFilter {
+  height: 100px;
+  width: 20%;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttonsFilter input {
+  height: 40px;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.footer-container p {
+  margin: 30px;
+}
+
+html {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  margin-top: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+.col > img {
+  width: 90%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.col > .card-body {
+  width: 80%;
+  display: inline-grid;
+}
+
+.card-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.events-container > .col {
+  flex: 0 0 auto;
+  width: 33.3333333333%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: center;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 8%;
+  padding-right: 8%;
+  margin-top: 60px;
+}
+
+.eventButtons {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
+  font-size: 25px;
+}
+
+.event-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-top: 60px;
+}
+
+.event-container > section {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.event-content {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.event-content > p {
+  margin-bottom: 20px;
+  font-family: serif;
+}
+
+.saveEvent {
+  margin: 20px;
+  padding: 10px;
+  width: 130px;
+  background-color: #4CAF50;
+  color: white;
+  border: black;
+  border-radius: 5%;
+}
+
+.noEvents {
+  width: -webkit-fill-available;
+  text-align: center;
+  margin: 20%;
+}
+
+.favButton {
+  border-width: 1px;
+  border-radius: 50%;
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination form {
+  color: black;
+  float: left;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination i {
+  font-size: 30px;
+  margin-left: 7px;
+  margin-right: 7px;
+  color: gray;
+}
+
+.pagination > div {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  width: fit-content;
+  padding: 11px;
+  height: 40px;
+}
+
+.pagination button.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination button:hover:not(.active) {background-color: #ddd;}
+
+.form-auth {
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.form-auth form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-control {
+  display: block;
+  width: -webkit-fill-available;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: opacity .1s ease-in-out,transform .1s ease-in-out;
+}
+
+.form-floating>.form-control, .form-floating>.form-select {
+  height: calc(2.5rem + 2px);
+  line-height: 1.25;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: -webkit-fill-available;
+  height: 24px;
+  font-size: 16px;
+}
+
+
+
+
+

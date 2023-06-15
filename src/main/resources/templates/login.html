@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head th:insert="~{blocks/head :: head}"></head>
+<body>
+<div th:insert="~{blocks/header :: header}"></div>
+<main class="form-auth">
+
+    <form th:action="@{/login}" method="post">
+        <h1 class="h3 mb-3 fw-normal">Вход</h1>
+        <div th:if="${param.error}" style="font-family: 'Ubuntu', serif;margin-bottom: 10px;color: red;">
+            Неправильный логин или пароль
+        </div>
+        <div th:if="${param.logout}" style="font-family: 'Ubuntu', serif;margin-bottom: 10px;color: red;">
+            Вы вышли
+        </div>
+
+        <div class="form-floating">
+            <p>Имя пользователя</p>
+            <input type="text" name="username" class="form-control" placeholder="Логин">
+        </div>
+        <div class="form-floating">
+            <p>Пароль</p>
+            <input type="password" name="password" class="form-control" autocomplete="new-password" placeholder="Пароль">
+        </div>
+        <button class="authButton" type="submit">Войти</button>
+
+    </form>
+</main>
+</body>
+</html>

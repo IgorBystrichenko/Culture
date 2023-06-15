@@ -1,0 +1,67 @@
+<div th:fragment="header" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <header>
+        <div class="headerContainer">
+            <div class="leftHeader">
+                <a href="/">Culture</a>
+            </div>
+            <div class="rightHeader">
+                <li sec:authorize="hasRole('ROLE_ADMIN')">
+                    <button class="headerButton">
+                        <a href="/adminList?d=true">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </button>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')">
+                    <button class="headerButton">
+                        <a href="/adminList">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </button>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <button class="headerButton">
+                        <a href="/favorite">
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+                    </button>
+                </li>
+                <li>
+                    <div sec:authorize="isAnonymous()">
+                        <button class="headerButton"><i id="loginButton" class="fa-solid fa-right-to-bracket"></i></button>
+                        <div id="loginModal" class="modal">
+                            <div class="login">
+                                <span id="loginClose" class="close">&times;</span>
+                                <h1>Вход</h1>
+                                <form th:action="@{/login}" method="post" accept-charset="UTF-8">
+                                    <p>
+                                        Имя пользователя<br><br>
+                                        <input type="text" name="username" value="" autocomplete="off" class="loginInput"><br><br>
+                                        Пароль<br><br>
+                                        <input type="password" name="password" value="" class="loginInput"><br><br>
+                                        <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                                    </p>
+
+                                    <input type="submit" value="Войти" class="authButton">
+                                </form>
+
+                                <a href="/registration">
+                                    <button value="Регистрация" class="authButton" style="background-color: #4bb35a; color: white;">
+                                        Регистрация
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <button class="headerButton">
+                            <a href="/logout">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </a>
+                        </button>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </header>
+</div>

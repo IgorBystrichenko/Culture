@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ru">
+<head th:insert="~{blocks/head :: head}"></head>
+<body>
+	<main>
+		<div th:insert="~{blocks/header :: header}"></div>
+
+		<div class="main-panel" th:style="'background-image: url(' + ${event.imageUrl} + ');'">
+			<div class="main-content">
+				<h1 contenteditable="plaintext-only" class="name-edit" th:text="${event.name}" style="color: white; text-shadow: 1px 1px 1px #000;"></h1>
+			</div>
+		</div>
+
+		<div class="event-container">
+			<section>
+				<div class="event-content">
+					<div class="description-edit" contenteditable="plaintext-only" th:utext="${event.description}"></div>
+				</div>
+			</section>
+
+
+			<div th:if="${event.gallery != null && !event.gallery.isEmpty()}" class="slideshow-container">
+
+				<div th:each="image,iterStat : ${event.gallery}"
+					 th:style="${iterStat.index == 0} ? 'display: block;'" class="slides fade" >
+					<img th:src="${image}" style="width:100%; height:100%; object-fit:contain;">
+				</div>
+
+				<a class="prev" onclick="plusSlides(-1)">❮</a>
+				<a class="next" onclick="plusSlides(1)">❯</a>
+			</div>
+
+			<form id="saveForm" th:action="@{/events/{id}/edit(id=${event.id})}" th:object="${event}" method="post">
+				<input name="id" type="hidden" th:value="${event.id}" />
+				<input name="name" id="name" type="hidden" />
+				<textarea name="description" id="description" style="display: none;"></textarea>
+				<button type="submit" name="submit" value="Сохранить" class="saveEvent">Сохранить</button>
+			</form>
+			<form id="restoreForm" th:action="@{/events/{id}/reset(id=${event.id})}" th:object="${event}" method="post">
+				<input name="id" type="hidden" th:value="${event.id}" />
+				<button type="submit" name="submit" value="Восстановить" class="saveEvent">Восстановить</button>
+			</form>
+		</div>
+
+
+		<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+		<script>
+			$('#saveForm').on('submit', function(){
+				$('#name').val($('.name-edit').html());
+				$('#description').val($('.description-edit').html());
+
+				return true;
+			});
+		</script>
+		<div th:insert="~{blocks/footer :: footer}"></div>
+	</main>
+</body>
+
+</html>

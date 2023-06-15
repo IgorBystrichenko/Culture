@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head th:insert="~{blocks/head :: head}"></head>
+<body>
+<main>
+	<div th:insert="~{blocks/header :: header}"></div>
+
+	<h1 th:if="${d && !events.isEmpty()}" style="width: -webkit-fill-available; margin-top: 10%;padding-left: 10%;font-size: 2.5rem;">Удаленные</h1>
+	<h1 th:if="${!d && !events.isEmpty()}" style="width: -webkit-fill-available; margin-top: 10%;padding-left: 10%;font-size: 2.5rem;">Измененные</h1>
+	<h1 th:if="${events.isEmpty()}" style="width: -webkit-fill-available; margin-top: 10%;padding-left: 10%;font-size: 2.5rem;"></h1>
+
+	<div class="events-container">
+		<div th:if="${!events.isEmpty()}" th:each="event : ${events}" class="col">
+			<img th:src="${event.imageUrl}" alt="img">
+			<div class="card-body">
+				<a class="card-text" th:href="@{/events/{id}(id=${event.id})}" th:text="${event.name}"></a>
+				<small class="data-start" th:text="${event.start}"></small>
+			</div>
+		</div>
+		<div th:if="${events.isEmpty()}" class="noEvents">
+			<i class="fa-solid fa-building-columns" style="font-size: 80px;margin-bottom: 20px;"></i>
+			<h1>Найдите интересующие вас мероприятия!</h1>
+			<a href="/" style="background-color: #4CAF50;color: white;padding: 8px 20px;border-radius: 5px;">Найти</a>
+		</div>
+	</div>
+
+	<div th:if="${pages.size() > 1}" class="center">
+		<div class="pagination">
+			<div th:each="page, iterStat : ${pages}">
+
+				<form th:if="${page != 0}" th:action="@{/adminList}" method="get" accept-charset="UTF-8">
+					<input name="p" type="hidden" th:value="${page}" />
+					<input name="d" type="hidden" th:value="${d}" />
+					<button type="submit" th:text="${page}" th:class="${page == activePage} ? 'active'"></button>
+				</form>
+				<i th:if="${page == 0}" class="fa-solid fa-ellipsis"></i>
+			</div>
+		</div>
+	</div>
+
+	<div th:insert="~{blocks/footer :: footer}"></div>
+
+</main>
+</body>
+
+</html>
